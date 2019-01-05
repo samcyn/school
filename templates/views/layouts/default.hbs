@@ -7,6 +7,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>univelcity</title>
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 	<link href="/styles/site.css" rel="stylesheet">
 
 	{{!-- This file provides the default styling for the KeystoneJS Content Editor
@@ -26,7 +27,7 @@
 	<div class="navbar-wrapper nav_menu">
 		<div class="container">
 			<div class="header_section">
-				<div class="logo pull-left"><a href="index.html"><img src="images/logo.png" alt="logo" /></a></div>
+				<div class="logo pull-left"><a href="index.html"><img src="/images/logo.png" alt="logo" /></a></div>
 				<div class="navbar navbar-static-top pull-right">
 
 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
@@ -49,74 +50,284 @@
 			</div>
 		</div><!-- /container -->
 	</div>
-	<div id="header">
-		<div class="container">
-			<div role="navigation" class="navbar navbar-default">
-				<div class="container-fluid">
-					<div class="navbar-header">
-						<button type="button" data-toggle="collapse" data-target=".navbar-collapse" class="navbar-toggle">
-							<span class="sr-only">Toggle navigation</span>
-							<span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
-						</button>
-						<a href="/" class="navbar-brand">univelcity</a>
+
+	<!-- Carousel -->
+	<div id="myCarousel" class="carousel slide">
+		<!-- Indicators -->
+		<ol class="carousel-indicators">
+			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+			<li data-target="#myCarousel" data-slide-to="1"></li>
+			<li data-target="#myCarousel" data-slide-to="2"></li>
+		</ol>
+		<div class="carousel-inner innerIMG">
+			<div class="item active">
+				<div class="container mid_content">
+					<div class="in_tech">We Accelerate Your Career in Tech.</div>
+					<div class="right_corse">
+						<p class="up_tx">Upcoming Courses!</p>
+						<p class="fd_tx">Frontend Development</p>
+						<div class="date"><i class="fa fa-calendar"></i> &nbsp;&nbsp;Starts June 5, 2018</div>
+						<div class="time"><i class="fa fa-clock-o"></i> &nbsp;&nbsp;10am - 4pm ( mon &amp; wed )</div>
+						<a href="frontend_development.html" class="apply_now">Apply Now</a>
 					</div>
-					<div class="collapse navbar-collapse">
-						<ul class="nav navbar-nav navbar-left">
-							{{# each navLinks}}
-							<li {{#ifeq ../section key}} class="active" {{else}} {{/ifeq}}>
-								<a href="{{ href }}">{{ label }}</a>
-							</li>
-							{{/each}}
-						</ul>
-						<ul class="nav navbar-nav navbar-right">
-							{{#if user}}
-							<li><a href="/keystone/signout">Sign Out</a></li>
-							{{else}}
-							<li><a href="/keystone/signin">Sign In</a></li>
-							{{/if}}
-						</ul>
+				</div>
+				<a href="#nextpage">
+					<div class="down_arrow"><i class="fa fa-angle-down"></i></div>
+				</a>
+				<span class="bg_slider"></span>
+				<img src="/images/slider1.png" class="img-responsive" />
+				<div class="container">
+					<div class="carousel-caption"></div>
+				</div>
+			</div>
+			<div class="item">
+				<div class="container mid_content">
+					<div class="in_tech">Learn How To&nbsp;Code From Scratch.</div>
+					<div class="right_corse">
+						<p class="up_tx">Upcoming Courses!</p>
+						<p class="fd_tx">Backend Development</p>
+						<div class="date"><i class="fa fa-calendar"></i> &nbsp;&nbsp;Starts June 5, 2018</div>
+						<div class="time"><i class="fa fa-clock-o"></i> &nbsp;&nbsp;10am - 4pm ( mon &amp; wed )</div>
+						<a href="frontend_development.html" class="apply_now">Apply Now</a>
+					</div>
+				</div>
+				<div class="down_arrow"><i class="fa fa-angle-down"></i></div>
+				<span class="bg_slider"></span>
+				<img src="/images/slider2.png" class="img-responsive" />
+				<div class="container">
+					<div class="carousel-caption"></div>
+				</div>
+			</div>
+			<div class="item">
+				<div class="container mid_content">
+					<div class="in_tech">Speed Up Your Learning With Us.</div>
+					<div class="right_corse">
+						<p class="up_tx">Main Campus!</p>
+						<div class="date"><i class="fa fa-map-marker"></i> 42 Montgomery Road, Yaba, Lagos, Nigeria</div>
+						<a href="frontend_development.html" class="apply_now">Apply Now</a>
+					</div>
+				</div>
+				<div class="down_arrow"><i class="fa fa-angle-down"></i></div>
+				<span class="bg_slider"></span>
+				<img src="/images/slider3.png" class="img-responsive" />
+				<div class="container">
+					<div class="carousel-caption"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Accelerate Your Tech Career -->
+	<div class="section_accelerate" id="nextpage">
+		<div class="container">
+			<h2 class="h2_head">Accelerate Your Tech Career</h2>
+			<p>At Univelcity, you will learn and understand how to code and build great products. We help individuals become
+				world-class developers and companies
+				to build and discover talents. A partnership with us is a setup for success, so, what are you waiting for?</p>
+			<div class="row">
+				<div class="row_sec">
+					<div class="col-md-3">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<div class="pnlBG"></div> <span>Build Your Tech Skills With Us</span>
+							</div>
+							<div class="panel-body">Everyday we train interested individuals who are either passionate about tech or
+								just want a carrier in tech from zero to zero.</div>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<div class="pnlBG green"></div> <span>Talent Source</span>
+							</div>
+							<div class="panel-body">Top companies hire from us as they are guaranteed quality and disciplined Talent,
+								that don’t just get the job done but are collarative and follow best practice in every take.</div>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<div class="pnlBG blue"></div> <span>Accelerated Learning</span>
+							</div>
+							<div class="panel-body">Using a project-based learning approach we positioned in-class. 8 weeks learning
+								bootcamp in building software and design skills in our students.</div>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<div id="body">
-		<!--
-				Flash messages allow you to display once-off status messages to users, e.g. form
-				validation errors, success messages, etc
-			-->
-		{{#if messages}}
-		<div id="flash-messages" class="container">
-			{{#if messages.info}}
-			<div class="alert alert-info">
-				{{{flashMessages messages.info}}}
+	<!-- upcoming_crs -->
+	<div class="upcoming_crs">
+		<div class="container">
+			<div class="col_up">
+				<h2 class="h2_head">All Upcoming Courses</h2>
+				<div class="carousel slide multi-item-carousel" id="theCarousel">
+					<div class="carousel-inner">
+						<div class="item active">
+							<div class="col-xs-12 col-md-6">
+								<div class="recta_box">
+									<i class="fa fa-angle-right arrow-right"></i>
+									<div class="imgpart"><img src="/images/upcom01.png" alt="img01" /></div>
+									<div class="contpart">
+										<h4>Frontend Development</h4>
+										<div class="date"><i class="fa fa-calendar"></i> &nbsp;&nbsp;Starts June 5, 2018</div>
+										<div class="time"><i class="fa fa-clock-o"></i> &nbsp;&nbsp;10am - 4pm ( mon &amp; wed )</div>
+										<a href="frontend_development.html">Apply Now</a>
+									</div>
+								</div>
+								<div class="recta_box">
+									<i class="fa fa-angle-right arrow-right"></i>
+									<div class="imgpart"><img src="/images/upcom03.png" alt="img01" /></div>
+									<div class="contpart">
+										<h4>Frontend Development</h4>
+										<div class="date"><i class="fa fa-calendar"></i> &nbsp;&nbsp;Starts June 5, 2018</div>
+										<div class="time"><i class="fa fa-clock-o"></i> &nbsp;&nbsp;10am - 4pm ( mon &amp; wed )</div>
+										<a href="frontend_development.html">Apply Now</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="col-xs-12 col-md-6">
+								<div class="recta_box">
+									<i class="fa fa-angle-right arrow-right"></i>
+									<div class="imgpart"><img src="/images/upcom02.png" alt="img01" /></div>
+									<div class="contpart">
+										<h4>Frontend Development</h4>
+										<div class="date"><i class="fa fa-calendar"></i> &nbsp;&nbsp;Starts June 5, 2018</div>
+										<div class="time"><i class="fa fa-clock-o"></i> &nbsp;&nbsp;10am - 4pm ( mon &amp; wed )</div>
+										<a href="frontend_development.html">Apply Now</a>
+									</div>
+								</div>
+								<div class="recta_box">
+									<i class="fa fa-angle-right arrow-right"></i>
+									<div class="imgpart"><img src="/images/upcom04.png" alt="img01" /></div>
+									<div class="contpart">
+										<h4>Frontend Development</h4>
+										<div class="date"><i class="fa fa-calendar"></i> &nbsp;&nbsp;Starts June 5, 2018</div>
+										<div class="time"><i class="fa fa-clock-o"></i> &nbsp;&nbsp;10am - 4pm ( mon &amp; wed )</div>
+										<a href="frontend_development.html">Apply Now</a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<a class="left carousel-control" href="#theCarousel" data-slide="prev"><i class="fa fa-angle-left"></i></a>
+				<a class="right carousel-control" href="#theCarousel" data-slide="next"><i class="fa fa-angle-right"></i></a>
+
 			</div>
-			{{/if}}
-			{{#if messages.success}}
-			<div class="alert alert-success">
-				{{{flashMessages messages.success}}}
-			</div>
-			{{/if}}
-			{{#if messages.warning}}
-			<div class="alert alert-warning">
-				{{{flashMessages messages.warning}}}
-			</div>
-			{{/if}}
-			{{#if messages.error}}
-			<div class="alert alert-danger">
-				{{{flashMessages messages.error}}}
-			</div>
-			{{/if}}
 		</div>
-		{{/if}}
-		<!-- The content block should contain the body of your template's content-->
-		{{{body}}}
+		<div class="img"><img src="/images/upcoming_crs.png" alt="upcoming course" /></div>
+		<span class="bg_color"></span>
 	</div>
-	<div class="container">
-		<div id="footer">
-			<p>Powered by <a href="http://keystonejs.com" target="_blank">KeystoneJS</a>.</p>
+	<!-- Testimonial -->
+	<div class="section_testi">
+		<div class="container">
+			<h2 class="h2_head">Testimonial</h2>
+			<div class="testi_sec">
+				<div class="carousel slide media-carousel" id="abc">
+					<div class="carousel-inner">
+						<div class="item active">
+							<div class="col-md-7 col-xs-12 contentsec">
+								<div class="left_img"><img src="/images/testimonial_img.png" alt="img" /></div>
+								<div class="right_body">
+									<h4>Emanuel Obute</h4>
+									<p>Everyday we train interested individuals who are either passionate about tech or just want a
+										carrier in tech from zero to zero.</p>
+									<p>Everyday we train interested individuals who are either passionate about tech or just want a
+										carrier in tech from zero to zero.</p>
+									<p>Everyday we train interested individuals who are either passionate about tech or just want a
+										carrier in tech from zero to zero.</p>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="col-md-7 col-xs-12 contentsec">
+								<div class="left_img"><img src="/images/testimonial_img01.png" alt="img" /></div>
+								<div class="right_body">
+									<h4>Temitope Alabi</h4>
+									<p>Everyday we train interested individuals who are either passionate about tech or just want a
+										carrier in tech from zero to zero.</p>
+									<p>Everyday we train interested individuals who are either passionate about tech or just want a
+										carrier in tech from zero to zero.</p>
+									<p>Everyday we train interested individuals who are either passionate about tech or just want a
+										carrier in tech from zero to zero.</p>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="col-md-7 col-xs-12 contentsec">
+								<div class="left_img"><img src="/images/testimonial_img03.png" alt="img" /></div>
+								<div class="right_body">
+									<h4>Frankline Davids</h4>
+									<p>Everyday we train interested individuals who are either passionate about tech or just want a
+										carrier in tech from zero to zero.</p>
+									<p>Everyday we train interested individuals who are either passionate about tech or just want a
+										carrier in tech from zero to zero.</p>
+									<p>Everyday we train interested individuals who are either passionate about tech or just want a
+										carrier in tech from zero to zero.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<a data-slide="prev" href="#abc" class="leftar carousel-control"><i class="fa fa-angle-left"></i></a>
+					<a data-slide="next" href="#abc" class="rightar carousel-control"><i class="fa fa-angle-right"></i></a>
+
+				</div>
+			</div>
+		</div>
+		<!-- Subscribe -->
+		<div class="container subs">
+			<div class="subs_form">
+				<h2>Get exclusive update about our upcoming courses <br>and events</h2>
+				<form action="#">
+					<input class="btn btn-lg" name="email" id="email" type="email" placeholder="Email" required>
+					<button class="btn btn-info btn-lg" type="submit">Subscribe</button>
+				</form>
+			</div>
 		</div>
 	</div>
+	<!--  Footer -->
+	<footer class="footer-bs">
+		<div class="container">
+			<div class="col-md-3 ftrone">
+				<div class="ftr_logo"><img src="/images/logo_v.svg" width="98" alt="footer logo" /></h2>
+					<p>42, Montgomery Road, <br>Yaba, Lagos, Nigeria.</p>
+				</div>
+			</div>
+			<div class="col-md-3 ftrtwo">
+				<h4>Courses</h4>
+				<ul class="pages">
+					<li><a href="immersive_courses.html">Immersive Courses</a></li>
+					<li><a href="#">Accelerated Courses</a></li>
+					<li><a href="#">Backend Development</a></li>
+					<li><a href="#">Android Development</a></li>
+				</ul>
+			</div>
+			<div class="col-md-3 ftrthree">
+				<h4>Company</h4>
+				<ul>
+					<li><a href="about-us.html">About Us</a></li>
+					<li><a href="#">Admission</a></li>
+					<li><a href="#">Blog</a></li>
+					<li><a href="#">Privacy &amp; Policy</a></li>
+				</ul>
+			</div>
+			<div class="col-md-3 ftrfour">
+				<h4>Connect with us</h4>
+				<a href="#" class="input-group">Hello@univelcity.com</a>
+				<p class="input-group">07036188527</p>
+				<div class="social">
+					<a href="http://www.facebook.com/univelcity"><i class="fa fa-facebook-square"></i></a>
+					<a href="http://www.twitter.com/univelcity"><i class="fa fa-twitter"></i></a>
+					<a href="http://www.instagram.com/univelcity"><i class="fa fa-instagram"></i></a>
+				</div>
+			</div>
+		</div>
+	</footer>
+
 	{{!--
 	//- jQuery 1.11.3 is included by default, and required by both Bootstrap
 	//- and the KeystoneJS Content Editor. If you are not targeting IE8,
@@ -128,6 +339,10 @@
 	//- them specifically here, instead of bootstrap-3.3.5.min.js
 	--}}
 	<script src="/js/bootstrap/bootstrap-3.3.5.min.js"></script>
+	<script src="/js/main.js"></script>
+	<script>
+		app.carouselCTRL();
+	</script>
 	{{{isAdminEditorJS user}}}
 </body>
 
