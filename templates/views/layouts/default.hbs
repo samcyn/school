@@ -65,11 +65,15 @@
 					<div class="container mid_content">
 						<div class="in_tech">We Accelerate Your Career in Tech.</div>
 						<div class="right_corse">
-							<p class="up_tx">Upcoming Courses!</p>
-							<p class="fd_tx">{{data.course.title}}</p>
-							<div class="date"><i class="fa fa-calendar"></i> &nbsp;&nbsp;Starts {{date data.course.startDate}}</div>
-							<div class="time"><i class="fa fa-clock-o"></i> &nbsp;&nbsp;{{data.course.periods}}</div>
-							<a href="/courses/{{data.course.courseType}}/{{data.course.slug}}" class="apply_now">Apply Now</a>
+							{{#if data.course}}
+								<p class="up_tx">Upcoming Courses!</p>
+								<p class="fd_tx">{{data.course.title}}</p>
+								<div class="date"><i class="fa fa-calendar"></i> &nbsp;&nbsp;Starts {{date data.course.startDate}}</div>
+								<div class="time"><i class="fa fa-clock-o"></i> &nbsp;&nbsp;{{data.course.periods}}</div>
+								<a href="/courses/{{data.course.courseType}}/{{data.course.slug}}" class="apply_now">Apply Now</a>
+							{{else}}
+								<p>No Upcoming Course</p>
+							{{/if}}
 						</div>
 					</div>
 					<a href="#nextpage">
