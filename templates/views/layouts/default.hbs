@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>univelcity</title>
+	<title>univelcity | {{section}}</title>
 	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 	<link href="/styles/site.css" rel="stylesheet">
@@ -27,7 +27,7 @@
 	<div class="navbar-wrapper nav_menu">
 		<div class="container">
 			<div class="header_section">
-				<div class="logo pull-left"><a href="index.html"><img src="/images/logo.png" alt="logo" /></a></div>
+				<div class="logo pull-left"><a href="/"><img src="/images/logo.png" alt="logo" /></a></div>
 				<div class="navbar navbar-static-top pull-right">
 
 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
@@ -40,10 +40,10 @@
 
 					<div id="navbar" class="navbar-collapse collapse">
 						<ul class="nav navbar-nav">
-							<li class="active"><a href="courses.html">Courses</a></li>
-							<li><a href="about-us.html" target="ext">Admission</a></li>
-							<li><a href="about-us.html">About Us</a></li>
-							<li><a href="immersive_courses.html"><span>Get Started</span></a></li>
+							<li class="active"><a href="/courses">Courses</a></li>
+							<li><a href="#" target="ext">Admission</a></li>
+							<li><a href="/about">About Us</a></li>
+							<li><a href="/courses/immersive"><span>Get Started</span></a></li>
 						</ul>
 					</div>
 				</div>
@@ -51,244 +51,111 @@
 		</div><!-- /container -->
 	</div>
 
-	<!-- Carousel -->
-	<div id="myCarousel" class="carousel slide">
-		<!-- Indicators -->
-		<ol class="carousel-indicators">
-			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-			<li data-target="#myCarousel" data-slide-to="1"></li>
-			<li data-target="#myCarousel" data-slide-to="2"></li>
-		</ol>
-		<div class="carousel-inner innerIMG">
-			<div class="item active">
-				<div class="container mid_content">
-					<div class="in_tech">We Accelerate Your Career in Tech.</div>
-					<div class="right_corse">
-						<p class="up_tx">Upcoming Courses!</p>
-						<p class="fd_tx">Frontend Development</p>
-						<div class="date"><i class="fa fa-calendar"></i> &nbsp;&nbsp;Starts June 5, 2018</div>
-						<div class="time"><i class="fa fa-clock-o"></i> &nbsp;&nbsp;10am - 4pm ( mon &amp; wed )</div>
-						<a href="frontend_development.html" class="apply_now">Apply Now</a>
+	{{#ifeq section 'home'}}
+		<!-- Carousel -->
+		<div id="myCarousel" class="carousel slide">
+			<!-- Indicators -->
+			<ol class="carousel-indicators">
+				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				<li data-target="#myCarousel" data-slide-to="1"></li>
+				<li data-target="#myCarousel" data-slide-to="2"></li>
+			</ol>
+			<div class="carousel-inner innerIMG">
+				<div class="item active">
+					<div class="container mid_content">
+						<div class="in_tech">We Accelerate Your Career in Tech.</div>
+						<div class="right_corse">
+							<p class="up_tx">Upcoming Courses!</p>
+							<p class="fd_tx">{{data.course.title}}</p>
+							<div class="date"><i class="fa fa-calendar"></i> &nbsp;&nbsp;Starts {{date data.course.startDate}}</div>
+							<div class="time"><i class="fa fa-clock-o"></i> &nbsp;&nbsp;{{data.course.periods}}</div>
+							<a href="/courses/{{data.course.courseType}}/{{data.course.slug}}" class="apply_now">Apply Now</a>
+						</div>
+					</div>
+					<a href="#nextpage">
+						<div class="down_arrow"><i class="fa fa-angle-down"></i></div>
+					</a>
+					<span class="bg_slider"></span>
+					<img src="/images/slider1.png" class="img-responsive" />
+					<div class="container">
+						<div class="carousel-caption"></div>
 					</div>
 				</div>
-				<a href="#nextpage">
+				<div class="item">
+					<div class="container mid_content">
+						<div class="in_tech">Learn How To&nbsp;Code From Scratch.</div>
+						<div class="right_corse">
+							<p class="up_tx">Upcoming Courses!</p>
+							<p class="fd_tx">Backend Development</p>
+							<div class="date"><i class="fa fa-calendar"></i> &nbsp;&nbsp;Starts June 5, 2018</div>
+							<div class="time"><i class="fa fa-clock-o"></i> &nbsp;&nbsp;10am - 4pm ( mon &amp; wed )</div>
+							<a href="frontend_development.html" class="apply_now">Apply Now</a>
+						</div>
+					</div>
 					<div class="down_arrow"><i class="fa fa-angle-down"></i></div>
-				</a>
-				<span class="bg_slider"></span>
-				<img src="/images/slider1.png" class="img-responsive" />
-				<div class="container">
-					<div class="carousel-caption"></div>
-				</div>
-			</div>
-			<div class="item">
-				<div class="container mid_content">
-					<div class="in_tech">Learn How To&nbsp;Code From Scratch.</div>
-					<div class="right_corse">
-						<p class="up_tx">Upcoming Courses!</p>
-						<p class="fd_tx">Backend Development</p>
-						<div class="date"><i class="fa fa-calendar"></i> &nbsp;&nbsp;Starts June 5, 2018</div>
-						<div class="time"><i class="fa fa-clock-o"></i> &nbsp;&nbsp;10am - 4pm ( mon &amp; wed )</div>
-						<a href="frontend_development.html" class="apply_now">Apply Now</a>
+					<span class="bg_slider"></span>
+					<img src="/images/slider2.png" class="img-responsive" />
+					<div class="container">
+						<div class="carousel-caption"></div>
 					</div>
 				</div>
-				<div class="down_arrow"><i class="fa fa-angle-down"></i></div>
-				<span class="bg_slider"></span>
-				<img src="/images/slider2.png" class="img-responsive" />
-				<div class="container">
-					<div class="carousel-caption"></div>
-				</div>
-			</div>
-			<div class="item">
-				<div class="container mid_content">
-					<div class="in_tech">Speed Up Your Learning With Us.</div>
-					<div class="right_corse">
-						<p class="up_tx">Main Campus!</p>
-						<div class="date"><i class="fa fa-map-marker"></i> 42 Montgomery Road, Yaba, Lagos, Nigeria</div>
-						<a href="frontend_development.html" class="apply_now">Apply Now</a>
-					</div>
-				</div>
-				<div class="down_arrow"><i class="fa fa-angle-down"></i></div>
-				<span class="bg_slider"></span>
-				<img src="/images/slider3.png" class="img-responsive" />
-				<div class="container">
-					<div class="carousel-caption"></div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Accelerate Your Tech Career -->
-	<div class="section_accelerate" id="nextpage">
-		<div class="container">
-			<h2 class="h2_head">Accelerate Your Tech Career</h2>
-			<p>At Univelcity, you will learn and understand how to code and build great products. We help individuals become
-				world-class developers and companies
-				to build and discover talents. A partnership with us is a setup for success, so, what are you waiting for?</p>
-			<div class="row">
-				<div class="row_sec">
-					<div class="col-md-3">
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<div class="pnlBG"></div> <span>Build Your Tech Skills With Us</span>
-							</div>
-							<div class="panel-body">Everyday we train interested individuals who are either passionate about tech or
-								just want a carrier in tech from zero to zero.</div>
+				<div class="item">
+					<div class="container mid_content">
+						<div class="in_tech">Speed Up Your Learning With Us.</div>
+						<div class="right_corse">
+							<p class="up_tx">Main Campus!</p>
+							<div class="date"><i class="fa fa-map-marker"></i> 42 Montgomery Road, Yaba, Lagos, Nigeria</div>
+							<a href="frontend_development.html" class="apply_now">Apply Now</a>
 						</div>
 					</div>
-					<div class="col-md-3">
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<div class="pnlBG green"></div> <span>Talent Source</span>
-							</div>
-							<div class="panel-body">Top companies hire from us as they are guaranteed quality and disciplined Talent,
-								that don’t just get the job done but are collarative and follow best practice in every take.</div>
-						</div>
-					</div>
-					<div class="col-md-3">
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<div class="pnlBG blue"></div> <span>Accelerated Learning</span>
-							</div>
-							<div class="panel-body">Using a project-based learning approach we positioned in-class. 8 weeks learning
-								bootcamp in building software and design skills in our students.</div>
-						</div>
+					<div class="down_arrow"><i class="fa fa-angle-down"></i></div>
+					<span class="bg_slider"></span>
+					<img src="/images/slider3.png" class="img-responsive" />
+					<div class="container">
+						<div class="carousel-caption"></div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<!-- upcoming_crs -->
-	<div class="upcoming_crs">
-		<div class="container">
-			<div class="col_up">
-				<h2 class="h2_head">All Upcoming Courses</h2>
-				<div class="carousel slide multi-item-carousel" id="theCarousel">
-					<div class="carousel-inner">
-						<div class="item active">
-							<div class="col-xs-12 col-md-6">
-								<div class="recta_box">
-									<i class="fa fa-angle-right arrow-right"></i>
-									<div class="imgpart"><img src="/images/upcom01.png" alt="img01" /></div>
-									<div class="contpart">
-										<h4>Frontend Development</h4>
-										<div class="date"><i class="fa fa-calendar"></i> &nbsp;&nbsp;Starts June 5, 2018</div>
-										<div class="time"><i class="fa fa-clock-o"></i> &nbsp;&nbsp;10am - 4pm ( mon &amp; wed )</div>
-										<a href="frontend_development.html">Apply Now</a>
-									</div>
-								</div>
-								<div class="recta_box">
-									<i class="fa fa-angle-right arrow-right"></i>
-									<div class="imgpart"><img src="/images/upcom03.png" alt="img01" /></div>
-									<div class="contpart">
-										<h4>Frontend Development</h4>
-										<div class="date"><i class="fa fa-calendar"></i> &nbsp;&nbsp;Starts June 5, 2018</div>
-										<div class="time"><i class="fa fa-clock-o"></i> &nbsp;&nbsp;10am - 4pm ( mon &amp; wed )</div>
-										<a href="frontend_development.html">Apply Now</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="item">
-							<div class="col-xs-12 col-md-6">
-								<div class="recta_box">
-									<i class="fa fa-angle-right arrow-right"></i>
-									<div class="imgpart"><img src="/images/upcom02.png" alt="img01" /></div>
-									<div class="contpart">
-										<h4>Frontend Development</h4>
-										<div class="date"><i class="fa fa-calendar"></i> &nbsp;&nbsp;Starts June 5, 2018</div>
-										<div class="time"><i class="fa fa-clock-o"></i> &nbsp;&nbsp;10am - 4pm ( mon &amp; wed )</div>
-										<a href="frontend_development.html">Apply Now</a>
-									</div>
-								</div>
-								<div class="recta_box">
-									<i class="fa fa-angle-right arrow-right"></i>
-									<div class="imgpart"><img src="/images/upcom04.png" alt="img01" /></div>
-									<div class="contpart">
-										<h4>Frontend Development</h4>
-										<div class="date"><i class="fa fa-calendar"></i> &nbsp;&nbsp;Starts June 5, 2018</div>
-										<div class="time"><i class="fa fa-clock-o"></i> &nbsp;&nbsp;10am - 4pm ( mon &amp; wed )</div>
-										<a href="frontend_development.html">Apply Now</a>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<a class="left carousel-control" href="#theCarousel" data-slide="prev"><i class="fa fa-angle-left"></i></a>
-				<a class="right carousel-control" href="#theCarousel" data-slide="next"><i class="fa fa-angle-right"></i></a>
+	{{else}}
+		<div class="page_heading">
+			<div class="page_name">
+				{{#ifeq section 'courses'}}
+					<h1>Courses</h1>
+					<p>We Accelerate Your Career in Tech</p>
+				{{else}}
+				{{/ifeq}}
+				{{#ifeq section 'about'}}
+					<h1>About</h1>
+					<p>We Accelerate Your Career in Tech</p>
+				{{else}}
+				{{/ifeq}}
+				{{#ifeq section 'courseLists'}}
+					<h1>Course Lists..{{filters.category}}</h1>
+					<p>We Accelerate Your Career in Tech</p>
+				{{else}}
+				{{/ifeq}}
+				{{#ifeq section 'course'}}
+					<h1>Course Details..{{filters.category}}</h1>
+					<p>We Accelerate Your Career in Tech</p>
+				{{else}}
+				{{/ifeq}}
+				{{#ifeq section 'blog'}}
+					<h1>Blog</h1>
+					<p>We Accelerate Your Career in Tech</p>
+				{{else}}
+				{{/ifeq}}
+			</div>
+			<span class="bg_inner_pages"></span>
+			<img src="/images/about_head.png" alt="img" />
+		</div>
+	{{/ifeq}}
 
-			</div>
-		</div>
-		<div class="img"><img src="/images/upcoming_crs.png" alt="upcoming course" /></div>
-		<span class="bg_color"></span>
-	</div>
-	<!-- Testimonial -->
-	<div class="section_testi">
-		<div class="container">
-			<h2 class="h2_head">Testimonial</h2>
-			<div class="testi_sec">
-				<div class="carousel slide media-carousel" id="abc">
-					<div class="carousel-inner">
-						<div class="item active">
-							<div class="col-md-7 col-xs-12 contentsec">
-								<div class="left_img"><img src="/images/testimonial_img.png" alt="img" /></div>
-								<div class="right_body">
-									<h4>Emanuel Obute</h4>
-									<p>Everyday we train interested individuals who are either passionate about tech or just want a
-										carrier in tech from zero to zero.</p>
-									<p>Everyday we train interested individuals who are either passionate about tech or just want a
-										carrier in tech from zero to zero.</p>
-									<p>Everyday we train interested individuals who are either passionate about tech or just want a
-										carrier in tech from zero to zero.</p>
-								</div>
-							</div>
-						</div>
-						<div class="item">
-							<div class="col-md-7 col-xs-12 contentsec">
-								<div class="left_img"><img src="/images/testimonial_img01.png" alt="img" /></div>
-								<div class="right_body">
-									<h4>Temitope Alabi</h4>
-									<p>Everyday we train interested individuals who are either passionate about tech or just want a
-										carrier in tech from zero to zero.</p>
-									<p>Everyday we train interested individuals who are either passionate about tech or just want a
-										carrier in tech from zero to zero.</p>
-									<p>Everyday we train interested individuals who are either passionate about tech or just want a
-										carrier in tech from zero to zero.</p>
-								</div>
-							</div>
-						</div>
-						<div class="item">
-							<div class="col-md-7 col-xs-12 contentsec">
-								<div class="left_img"><img src="/images/testimonial_img03.png" alt="img" /></div>
-								<div class="right_body">
-									<h4>Frankline Davids</h4>
-									<p>Everyday we train interested individuals who are either passionate about tech or just want a
-										carrier in tech from zero to zero.</p>
-									<p>Everyday we train interested individuals who are either passionate about tech or just want a
-										carrier in tech from zero to zero.</p>
-									<p>Everyday we train interested individuals who are either passionate about tech or just want a
-										carrier in tech from zero to zero.</p>
-								</div>
-							</div>
-						</div>
-					</div>
 
-					<a data-slide="prev" href="#abc" class="leftar carousel-control"><i class="fa fa-angle-left"></i></a>
-					<a data-slide="next" href="#abc" class="rightar carousel-control"><i class="fa fa-angle-right"></i></a>
 
-				</div>
-			</div>
-		</div>
-		<!-- Subscribe -->
-		<div class="container subs">
-			<div class="subs_form">
-				<h2>Get exclusive update about our upcoming courses <br>and events</h2>
-				<form action="#">
-					<input class="btn btn-lg" name="email" id="email" type="email" placeholder="Email" required>
-					<button class="btn btn-info btn-lg" type="submit">Subscribe</button>
-				</form>
-			</div>
-		</div>
-	</div>
+	<!-- The content block should contain the body of your template's content-->
+	{{{body}}}
+	
 	<!--  Footer -->
 	<footer class="footer-bs">
 		<div class="container">
@@ -300,8 +167,8 @@
 			<div class="col-md-3 ftrtwo">
 				<h4>Courses</h4>
 				<ul class="pages">
-					<li><a href="immersive_courses.html">Immersive Courses</a></li>
-					<li><a href="#">Accelerated Courses</a></li>
+					<li><a href="/courses/immersive">Immersive Courses</a></li>
+					<li><a href="/courses/accelerated">Accelerated Courses</a></li>
 					<li><a href="#">Backend Development</a></li>
 					<li><a href="#">Android Development</a></li>
 				</ul>
@@ -309,9 +176,9 @@
 			<div class="col-md-3 ftrthree">
 				<h4>Company</h4>
 				<ul>
-					<li><a href="about-us.html">About Us</a></li>
+					<li><a href="/about">About Us</a></li>
 					<li><a href="#">Admission</a></li>
-					<li><a href="#">Blog</a></li>
+					<li><a href="/blog">Blog</a></li>
 					<li><a href="#">Privacy &amp; Policy</a></li>
 				</ul>
 			</div>

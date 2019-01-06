@@ -1,21 +1,116 @@
-{{!< default}}
-<div class="container">
-	<div class="jumbotron"><img src="/images/logo.svg" width="160">
-		<h1>Welcome</h1>
-		<p>This is your new <a href='http://keystonejs.com' target='_blank'>KeystoneJS</a> website.</p>
-		<p>
-			It includes the latest versions of
-			<a href='http://getbootstrap.com/' target='_blank'>Bootstrap</a>
-			and <a href='http://www.jquery.com/' target='_blank'>jQuery</a>.
-		</p>
-		<p>Visit the <a href='http://keystonejs.com/guide' target='_blank'>Getting Started</a> guide to learn how to customise it.</p>
-		<hr>
-		<p>We have created a default Admin user for you with the email <strong>admin@univelcity.com</strong> and the password <strong>document007</strong>.</p>
-		<p><a href="/keystone/signin" style="margin-right: 10px" class="btn btn-lg btn-primary">Sign in</a> to use the Admin UI.</p>
-		<hr>
-		<p>
-			Remember to <a href='https://github.com/keystonejs/keystone' target='_blank'>Star KeystoneJS on GitHub</a> and
-			<a href='https://twitter.com/keystonejs' target='_blank'>follow @keystonejs</a> on twitter for updates.
-		</p>
+{{!< default}} 
+	<!-- Accelerate Your Tech Career -->
+	<div class="section_accelerate" id="nextpage">
+		<div class="container">
+			<h2 class="h2_head">Accelerate Your Tech Career</h2>
+			<p>At Univelcity, you will learn and understand how to code and build great products. We help individuals become
+				world-class developers and companies
+				to build and discover talents. A partnership with us is a setup for success, so, what are you waiting for?</p>
+			<div class="row">
+				<div class="row_sec">
+					<div class="col-md-3">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<div class="pnlBG"></div> <span>Build Your Tech Skills With Us</span>
+							</div>
+							<div class="panel-body">Everyday we train interested individuals who are either passionate about tech or
+								just want a carrier in tech from zero to zero.</div>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<div class="pnlBG green"></div> <span>Talent Source</span>
+							</div>
+							<div class="panel-body">Top companies hire from us as they are guaranteed quality and disciplined Talent,
+								that don’t just get the job done but are collarative and follow best practice in every take.</div>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<div class="pnlBG blue"></div> <span>Accelerated Learning</span>
+							</div>
+							<div class="panel-body">Using a project-based learning approach we positioned in-class. 8 weeks learning
+								bootcamp in building software and design skills in our students.</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
-</div>
+	<!-- upcoming_crs -->
+	<div class="upcoming_crs">
+		<div class="container">
+			<div class="col_up">
+				<h2 class="h2_head">All Upcoming Courses</h2>
+				{{#ifeq data.courses.results.length 0}}
+				<h2>Stay tune for some exciting new courses</h2>
+				{{else}}
+				<div class="carousel slide multi-item-carousel" id="theCarousel">
+					<div class="carousel-inner">
+						{{#each (arrayChunks data.courses.results 2)}}
+							<div class="item {{#ifeq @index 0}}active{{else}}{{/ifeq}}">
+								<div class="col-xs-12 col-md-6">
+									{{#each this}}
+										<div class="recta_box">
+											<i class="fa fa-angle-right arrow-right"></i>
+											<div class="imgpart"><img src="{{{cloudinaryUrl image crop='fit' }}}" alt="{{slug}}" /></div>
+											<div class="contpart">
+												<h4>{{title}}</h4>
+												<div class="date"><i class="fa fa-calendar"></i> &nbsp;&nbsp;Starts {{date startDate}}</div>
+												<div class="time"><i class="fa fa-clock-o"></i> &nbsp;&nbsp;{{periods}}</div>
+												<a href="/courses/{{courseType}}/{{slug}}">Apply Now</a>
+											</div>
+										</div>
+									{{/each}}
+								</div>
+							</div>
+						{{/each}}
+					</div>
+				</div>
+				<a class="left carousel-control" href="#theCarousel" data-slide="prev"><i class="fa fa-angle-left"></i></a>
+				<a class="right carousel-control" href="#theCarousel" data-slide="next"><i class="fa fa-angle-right"></i></a>
+				{{/ifeq}}
+			</div>
+		</div>
+		<div class="img"><img src="/images/upcoming_crs.png" alt="upcoming course" /></div>
+		<span class="bg_color"></span>
+	</div>
+	<!-- Testimonial -->
+	<div class="section_testi">
+		<div class="container">
+			<h2 class="h2_head">Testimonial</h2>
+			<div class="testi_sec">
+				<div class="carousel slide media-carousel" id="abc">
+					<div class="carousel-inner">
+						{{#each data.testimonials.results }}
+							<div class="item {{#ifeq @index 0}}active{{else}}{{/ifeq}}">
+								<div class="col-md-7 col-xs-12 contentsec">
+									<div class="left_img"><img src="/images/testimonial_img.png" alt="img" /></div>
+									<div class="right_body">
+										<h4>{{name}}</h4>
+										<div>{{safeStringAlways message.extended}}</div>
+									</div>
+								</div>
+							</div>
+						{{/each}}
+					</div>
+
+					<a data-slide="prev" href="#abc" class="leftar carousel-control"><i class="fa fa-angle-left"></i></a>
+					<a data-slide="next" href="#abc" class="rightar carousel-control"><i class="fa fa-angle-right"></i></a>
+
+				</div>
+			</div>
+		</div>
+		<!-- Subscribe -->
+		<div class="container subs">
+			<div class="subs_form">
+				<h2>Get exclusive update about our upcoming courses <br>and events</h2>
+				<form action="#">
+					<input class="btn btn-lg" name="email" id="email" type="email" placeholder="Email" required>
+					<button class="btn btn-info btn-lg" type="submit">Subscribe</button>
+				</form>
+			</div>
+		</div>
+	</div>

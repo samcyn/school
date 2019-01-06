@@ -326,5 +326,15 @@ module.exports = function () {
 		return obj._[underscoreMethod].format();
 	};
 
+	// split arrays into chunks
+	_helpers.arrayChunks = function (array, size) {
+		return _.chunk(array, size);
+	}
+
+	// always return safestring
+	_helpers.safeStringAlways = function (msg) {
+		return new hbs.SafeString(msg);
+	}
+
 	return _helpers;
 };
