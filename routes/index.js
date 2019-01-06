@@ -36,9 +36,11 @@ exports = module.exports = function (app) {
 	// Views
 	app.get('/', routes.views.index);
 	app.get('/courses', routes.views.courses);
-	app.get('/courses/:category?', routes.views.courseLists);
-	app.get('/courses/:category/:courseId', routes.views.course);
+	app.get('/courses/:courseType?', routes.views.courseLists);
+	app.get('/courses/:courseType/:courseId', routes.views.course);
 	app.get('/about', routes.views.about);
+	app.get('/payments/courses/:courseId', routes.views.payments);
+	app.post('/payments/courses/:courseId', routes.views.charges);
 	app.get('/blog/:category?', routes.views.blog);
 	app.get('/blog/post/:post', routes.views.post);
 	app.get('/gallery', routes.views.gallery);

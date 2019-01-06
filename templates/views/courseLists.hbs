@@ -1,3 +1,19 @@
 <div class="section_accelerate aboutus">
-  <h1>All courses here.....</h1>
+  <div class="container">
+    <div class="cors_ttl">An eight ( 8 ) weeks bootcamp that help you kick start a career in Tech. <br />( Programming
+      and Design )
+    </div>
+
+    {{#each courses.results}}
+      <div class="col_immer">
+        <div class="img_sec"><img src="{{{cloudinaryUrl image crop='fit' }}}" alt="{{slug}}" /></div>
+        <div class="detail_sec">
+          <h2>{{title}}</h2>
+          <p>{{safeStringAlways description.brief}}</p>
+          <a href="/courses/{{courseType}}/{{slug}}" class="learn_more">Learn more</a>
+        </div>
+      </div>
+    {{/each}}
+
+  </div>
 </div>

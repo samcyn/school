@@ -122,7 +122,7 @@
 			</div>
 		</div>
 	{{else}}
-		<div class="page_heading">
+		<div class="page_heading {{#ifeq section 'payments'}}form_page{{/ifeq}}">
 			<div class="page_name">
 				{{#ifeq section 'courses'}}
 					<h1>Courses</h1>
@@ -135,12 +135,12 @@
 				{{else}}
 				{{/ifeq}}
 				{{#ifeq section 'courseLists'}}
-					<h1>Course Lists..{{filters.category}}</h1>
+					<h1>{{#ifeq courseType 'immersive'}}Immersive Courses{{else}}Accelerated Courses{{/ifeq}}</h1>
 					<p>We Accelerate Your Career in Tech</p>
 				{{else}}
 				{{/ifeq}}
 				{{#ifeq section 'course'}}
-					<h1>Course Details..{{filters.category}}</h1>
+					<h1>{{data.course.title}}</h1>
 					<p>We Accelerate Your Career in Tech</p>
 				{{else}}
 				{{/ifeq}}
@@ -151,7 +151,7 @@
 				{{/ifeq}}
 			</div>
 			<span class="bg_inner_pages"></span>
-			<img src="/images/about_head.png" alt="img" />
+			<img {{#ifeq section 'payments'}}src="/images/form.png" height="116"{{else}}src="/images/about_head.png"{{/ifeq}} alt="img" />
 		</div>
 	{{/ifeq}}
 
@@ -204,6 +204,8 @@
 	//- and the KeystoneJS Content Editor. If you are not targeting IE8,
 	//- you can upgrade to 2.1.4 (also bundled) for better performance.
 	--}}
+	<script src="https://checkout.stripe.com/checkout.js"></script>
+
 	<script src="/js/jquery/jquery-1.11.3.min.js"></script>
 	{{!--
 	//- Customise which Bootstrap javascript files are served by including

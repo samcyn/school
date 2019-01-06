@@ -6,13 +6,15 @@ exports = module.exports = function (req, res) {
   var locals = res.locals;
 
   // Set locals
-  locals.section = 'course';
-  locals.filters = {
-    courseId: req.params.courseId,
-    courseType: req.params.courseType,
-  };
+  locals.section = 'payments';
+
+  // locals.filters = {
+  //   courseId: req.params.courseId,
+  //   courseType: req.params.courseType,
+  // };
   locals.data = {
-    course: [],
+    courseId: req.params.courseId,
+    course: null,
   };
 
   // Load the current course
@@ -20,20 +22,16 @@ exports = module.exports = function (req, res) {
 
     var q = keystone.list('Course').model.findOne({
       state: 'published',
-      slug: locals.filters.courseId,
-      courseType: locals.filters.courseType,
+      slug: locals.data.courseId
     });
 
     q.exec(function (err, response) {
       locals.data.course = response;
-      console.log("BIG...", response);
       next(err);
     });
 
   });
 
- 
-
   // Render the view
-  view.render('course');
+  view.render('payments');
 };

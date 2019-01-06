@@ -1,0 +1,55 @@
+<div class="section_accelerate dev_sec frm_sec">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10">
+        <div class="col-md-5 padLR">
+          <div class="leftpage">
+            <span class="bgble">
+              <div class="content">
+                <img src="/images/resume.svg" alt="resume" />
+                <span>Registration<br>Form</span>
+                <p>Learn to start working with cutting-edge libraries and frameworks, gain an understanding of how to
+                  write high-quality</p>
+              </div>
+            </span>
+            <img src="/images/formImg.png" alt="formImg" />
+          </div>
+        </div>
+        <div class="col-md-7 padLR rightpage">
+
+          <h2>Fill The Registration Form</h2>
+          <form action="/payments/courses/{{data.courseId}}" method="POST" id="paymentForm" onsubmit="app.formSumbitController(event, '{{data.course.title}}', '{{data.course.actualPrice}}')">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input name="name" type="text" class="form-control" id="name" required="">
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input name="email" type="text" class="form-control" id="email" required="">
+            </div>
+            <div class="form-group">
+              <label for="number">Phone Number</label>
+              <input type="number" id="number" name="number" class="form-control" name="quantity" min="11" required="">
+            </div>
+            <div class="form-group">
+              <label for="address">Address</label>
+              <textarea class="form-control" id="address" name="address" cols=""></textarea>
+            </div>
+            <div class="form-group field_grp">
+              <label><input name="option" type="radio" value="full"> <span>Full payment</span></label>
+              <label><input name="option" type="radio" value="installment"> <span>Installment</span></label>
+              <label><input name="option" type="radio" value="others"> <span>Others</span></label>
+            </div>
+            <div class="form-group">
+              <label for="coupon">Do you have a coupon code?</label>
+              <input type="text" id="coupon" name="coupon" class="form-control">
+            </div>
+            
+            <button type="submit" class="btn btn-primary btn-block btn-brand">Register</button>
+            {{!-- <div class="button"><a href="#">Register</a></div> --}}
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
