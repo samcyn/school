@@ -87,7 +87,7 @@
 						{{#each data.testimonials.results }}
 							<div class="item {{#ifeq @index 0}}active{{else}}{{/ifeq}}">
 								<div class="col-md-7 col-xs-12 contentsec">
-									<div class="left_img"><img src="/images/testimonial_img.png" alt="img" /></div>
+									<div class="left_img"><img src="{{{cloudinaryUrl image crop='fit' }}}" alt="img" /></div>
 									<div class="right_body">
 										<h4>{{name}}</h4>
 										<div>{{safeStringAlways message.extended}}</div>

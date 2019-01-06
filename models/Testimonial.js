@@ -19,6 +19,7 @@ Testimonial.add({
     extended: { type: Types.Html, wysiwyg: true, height: 400 },
   },
   state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
+  image: { type: Types.CloudinaryImage },
 });
 
 

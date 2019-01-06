@@ -42,6 +42,7 @@ exports = module.exports = function (req, res) {
 		t.exec(function(err, response){
 			locals.data.testimonials = response;
 			console.log(response.results);
+			next(err);
 		});
 	});
 
