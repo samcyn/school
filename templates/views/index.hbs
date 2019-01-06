@@ -45,32 +45,32 @@
 			<div class="col_up">
 				<h2 class="h2_head">All Upcoming Courses</h2>
 				{{#ifeq data.courses.results.length 0}}
-				<h2>Stay tune for some exciting new courses</h2>
+					<h2>Stay tune for some exciting new courses</h2>
 				{{else}}
-				<div class="carousel slide multi-item-carousel" id="theCarousel">
-					<div class="carousel-inner">
-						{{#each (arrayChunks data.courses.results 2)}}
-							<div class="item {{#ifeq @index 0}}active{{else}}{{/ifeq}}">
-								<div class="col-xs-12 col-md-6">
-									{{#each this}}
-										<div class="recta_box">
-											<i class="fa fa-angle-right arrow-right"></i>
-											<div class="imgpart"><img src="{{{cloudinaryUrl image crop='fit' }}}" alt="{{slug}}" /></div>
-											<div class="contpart">
-												<h4>{{title}}</h4>
-												<div class="date"><i class="fa fa-calendar"></i> &nbsp;&nbsp;Starts {{date startDate}}</div>
-												<div class="time"><i class="fa fa-clock-o"></i> &nbsp;&nbsp;{{periods}}</div>
-												<a href="/courses/{{courseType}}/{{slug}}">Apply Now</a>
+					<div class="carousel slide multi-item-carousel" id="theCarousel">
+						<div class="carousel-inner">
+							{{#each (arrayChunks data.courses.results 2)}}
+								<div class="item {{#ifeq @index 0}}active{{else}}{{/ifeq}}">
+									<div class="col-xs-12 col-md-6">
+										{{#each this}}
+											<div class="recta_box">
+												<i class="fa fa-angle-right arrow-right"></i>
+												<div class="imgpart"><img src="{{{cloudinaryUrl image crop='fit' }}}" alt="{{slug}}" /></div>
+												<div class="contpart">
+													<h4>{{title}}</h4>
+													<div class="date"><i class="fa fa-calendar"></i> &nbsp;&nbsp;Starts {{date startDate}}</div>
+													<div class="time"><i class="fa fa-clock-o"></i> &nbsp;&nbsp;{{periods}}</div>
+													<a href="/courses/{{courseType}}/{{slug}}">Apply Now</a>
+												</div>
 											</div>
-										</div>
-									{{/each}}
+										{{/each}}
+									</div>
 								</div>
-							</div>
-						{{/each}}
+							{{/each}}
+						</div>
 					</div>
-				</div>
-				<a class="left carousel-control" href="#theCarousel" data-slide="prev"><i class="fa fa-angle-left"></i></a>
-				<a class="right carousel-control" href="#theCarousel" data-slide="next"><i class="fa fa-angle-right"></i></a>
+					<a class="left carousel-control" href="#theCarousel" data-slide="prev"><i class="fa fa-angle-left"></i></a>
+					<a class="right carousel-control" href="#theCarousel" data-slide="next"><i class="fa fa-angle-right"></i></a>
 				{{/ifeq}}
 			</div>
 		</div>
@@ -81,27 +81,31 @@
 	<div class="section_testi">
 		<div class="container">
 			<h2 class="h2_head">Testimonial</h2>
-			<div class="testi_sec">
-				<div class="carousel slide media-carousel" id="abc">
-					<div class="carousel-inner">
-						{{#each data.testimonials.results }}
-							<div class="item {{#ifeq @index 0}}active{{else}}{{/ifeq}}">
-								<div class="col-md-7 col-xs-12 contentsec">
-									<div class="left_img"><img src="{{{cloudinaryUrl image crop='fit' }}}" alt="img" /></div>
-									<div class="right_body">
-										<h4>{{name}}</h4>
-										<div>{{safeStringAlways message.extended}}</div>
+			{{#ifeq data.testimonials.results.length 0}}
+				<p>No Testimonial just yet</p>
+			{{else}}
+				<div class="testi_sec">
+					<div class="carousel slide media-carousel" id="abc">
+						<div class="carousel-inner">
+							{{#each data.testimonials.results }}
+								<div class="item {{#ifeq @index 0}}active{{else}}{{/ifeq}}">
+									<div class="col-md-7 col-xs-12 contentsec">
+										<div class="left_img"><img src="{{{cloudinaryUrl image crop='fit' }}}" alt="img" /></div>
+										<div class="right_body">
+											<h4>{{name}}</h4>
+											<div>{{safeStringAlways message.extended}}</div>
+										</div>
 									</div>
 								</div>
-							</div>
-						{{/each}}
+							{{/each}}
+						</div>
+
+						<a data-slide="prev" href="#abc" class="leftar carousel-control"><i class="fa fa-angle-left"></i></a>
+						<a data-slide="next" href="#abc" class="rightar carousel-control"><i class="fa fa-angle-right"></i></a>
+
 					</div>
-
-					<a data-slide="prev" href="#abc" class="leftar carousel-control"><i class="fa fa-angle-left"></i></a>
-					<a data-slide="next" href="#abc" class="rightar carousel-control"><i class="fa fa-angle-right"></i></a>
-
 				</div>
-			</div>
+			{{/ifeq}}
 		</div>
 		<!-- Subscribe -->
 		<div class="container subs">
