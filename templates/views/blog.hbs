@@ -1,33 +1,43 @@
-<div class="container">
-	<h1>Blog</h1>
-</div>
-<div class="container">
-	<div class="row">
-		<div class="col-sm-8 col-md-9">
-			<h4 class="text-weight-normal">Showing {{ data.posts.results.length}} post.</h4>
-			<div class="blog">
+<section class="blog" style="padding: 80px 0; background: #EEE;">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-8 col-md-9">
+				{{!-- <h4 class="text-weight-normal">Showing {{ data.posts.results.length}} post.</h4> --}}
+				
 				{{# each data.posts.results}}
-				<div data-ks-editable="{{#if ../user}}{{adminEditableUrl ../../user _id}}{{/if}}" class="post">
-					<h2><a href="{{postUrl slug}}">{{{title}}}</a></h2>
-					<p class="lead text-muted">{{{categoryList categories prefix="Posted in "}}}
-							{{#if author.name.first}}by {{author.name.first}}{{/if}}
-					</p>
-					{{#if image}}<img src="{{{cloudinaryUrl image width=160 height=160 crop='fit' }}}" class="img pull-right">{{/if}}
-					<p>{{{content.brief}}}</p>
-					{{#if content.extended}}<p class="read-more"><a href="{{postUrl slug}}">Read more...</a></p>{{/if}}
+					<div data-ks-editable="{{#if ../user}}{{adminEditableUrl ../../user _id}}{{/if}}" class="panel panel-default">
+						<div class="panel-heading" style="height: 140px; position: relative; padding: 20px 30px; border: 0;">
+							<div class="blog__abs" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; width: 100%; height: 100%;">
+								{{#if image}}<img src="{{{cloudinaryUrl image }}}" style="height: 100%; width: 100%;"/>{{/if}}
+							</div>
+							<div class="blog__avatar" style="width: 70px; height: 70px; position: relative; margin-top: 30px; ">
+								<img src="{{{cloudinaryUrl author.avatar width=70 height=70 }}}" style="border-radius: 100%; border-radius: 100%; border: 4px solid #FFF;"/>
+							</div>
+							<span style="background: url(/images/arrow-white.png) no-repeat; background-size: 38.5px 16px; height: 16px;width: 38.5px;bottom: 0;position: absolute;left: 45px;"></span>
+						</div>
+						<div class="panel-body" >
+							<h2 style="margin-top: 0 !important;"><a href="{{postUrl slug}}" style="color:#303030; text-decoration: none; font-size: 28px; font-weight: 300; line-height: 32px;">{{{title}}}</a></h2>
+							<p class="lead text-muted" style="    letter-spacing: .01em;font-size: 11px;font-weight: 500;text-transform: uppercase;line-height: 19px;">{{{categoryList categories prefix="Posted in "}}}
+								{{#if author.name.first}}by {{author.name.first}}{{/if}}
+							</p>
+							<p>{{{content.brief}}}</p>
+							{{#if content.extended}}<p class="read-more"><a href="{{postUrl slug}}">Read more...</a></p>{{/if}}
+						</div>
+					</div>
+				{{/each}}
+				
+			</div>
+
+			<div class="col-sm-4 col-md-3">
+				<p class="text-muted">Categories</p>
+				<div class="list-group">
+					<a href="/blog" class="active list-group-item" style="background-color: #29365C !important; border-color: #29365C;">All</a>
+					{{# each data.categories }}
+						<a href="{{categoryUrl key}}" class="false list-group-item">{{name}}</a>
+					{{/each}}
 				</div>
-				{{/each}}
 			</div>
 		</div>
-		<div class="col-sm-4 col-md-3">
-			<h2>Categories</h2>
-			<div style="margin-top: 70px;" class="list-group">
-				<a href="/blog" class="active list-group-item">All Categories</a>
-				{{# each data.categories }}
-				<a href="{{categoryUrl key}}" class="false list-group-item">{{name}}</a>
-				{{/each}}
-			</div>
-		</div>
+		{{>pagination}}
 	</div>
-	{{>pagination}}
-</div>
+</section>

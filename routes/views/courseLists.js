@@ -13,6 +13,7 @@ exports = module.exports = function (req, res) {
 
   // Load the courses
   view.on('init', function (next) {
+    
     var q = keystone.list('Course').paginate({
       page: req.query.page || 1,
       perPage: 10,

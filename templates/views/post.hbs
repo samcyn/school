@@ -1,21 +1,64 @@
-<div class="container">
-	<div class="row">
-		<div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
-			<article>
-				<p><a href="/blog">&larr; back to the blog</a></p>
-				<hr>
-				<header>
-					<h1>{{data.post.title}}</h1>
-					<h5>
-						{{{categoryList data.post.categories prefix="Posted in "}}}
-						{{#if author.name.first}}by {{author.name.first}}{{/if}}
-					</h5>
-				</header>
-				<div class="post">
-					{{#if data.post.image}}<img src="{{{cloudinaryUrl data.post.image width=750 height=450 crop='fit' }}}" class="img-responsive">{{/if}}
-					{{{data.post.content.extended}}}
+<section class="blog blog--grey-bg" style="padding: 80px 0;background: #EEE;">
+	<div class="container">
+		{{!-- <div>
+			<p><a href="/blog">&larr; back to the blog</a></p>
+		</div> --}}
+		<div class="row">
+			<div class="col-sm-8 col-md-9">
+				<h1 style="margin: 0 0 50px 0; padding:0 50px;">{{data.post.title}}</h1>
+				<div class="panel" style="position: relative">
+					<div class="panel-body">
+						<div style="background: url(/images/arrow-white.png) no-repeat;background-size: 56px 23px;height: 23px;width: 56px;position: absolute;top: -22px;left: 44px;"></div>
+						<header style="display: flex; margin-bottom: 25px;">
+							<div class="blog__avatar" style="width: 70px; height: 70px; align-self: center; ">
+								<img src="{{{cloudinaryUrl data.post.author.avatar width=70 height=70 }}}" style="box-shadow: 0 2px 3px rgba(0,0,0,.2);border-radius: 100%; border-radius: 100%; border: 4px solid #FFF;" />
+							</div>
+							<div style="align-self: center; padding-left: 20px;">
+								<p>{{{categoryList data.post.categories prefix="Posted in "}}}
+								{{#if data.post.author.name.first}}by {{data.post.author.name.first}}{{/if}}</p>
+								<small>{{data.post.createdAt}}</small>
+							</div>
+						</header>
+						<div class="post">
+							<div>{{#if data.post.image}}<img src="{{{cloudinaryUrl data.post.image }}}" class="img-responsive">{{/if}}</div>
+							<br/><br/>
+							{{{data.post.content.extended}}}
+						</div>
+					</div>
 				</div>
-			</article>
+				<br/><br/>
+				<div id="disqus_thread"></div>
+				<script>
+
+					/**
+					*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+					*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+
+					var disqus_config = function () {
+						this.page.url = 'https://univelcityng.herokuapp.com/blog/post/{{{data.post._id}}}';  // Replace PAGE_URL with your page's canonical URL variable
+						this.page.identifier = 'blog'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+						this.page.title = 'blog'
+					};
+
+					(function () { // DON'T EDIT BELOW THIS LINE
+						var d = document, s = d.createElement('script');
+						s.src = 'https://https-univelcityng-herokuapp-com.disqus.com/embed.js';
+						s.setAttribute('data-timestamp', +new Date());
+						(d.head || d.body).appendChild(s);
+					})();
+				</script>
+				<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+			</div>
+			<div class="col-sm-4 col-md-3">
+				<p>Similar posts</p>
+				<div class="list-group">
+					<a href="/blog" class="active list-group-item" style="background-color: #29365C !important; border-color: #29365C;">All</a>
+					{{# each data.posts.results }}
+						<a href="/blog/post/{{slug}}" class="false list-group-item">{{title}}</a>
+					{{/each}}
+				</div>
+			</div>
 		</div>
+		
 	</div>
-</div>
+</section>
