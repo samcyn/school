@@ -61,48 +61,33 @@
 				<li data-target="#myCarousel" data-slide-to="2"></li>
 			</ol>
 			<div class="carousel-inner innerIMG">
-				<div class="item active">
-					<div class="container mid_content">
-						<div class="in_tech">We Accelerate Your Career in Tech.</div>
-						<div class="right_corse">
-							{{#if data.course}}
-								<p class="up_tx">Upcoming Courses!</p>
-								<p class="fd_tx">{{data.course.title}}</p>
-								<div class="date"><i class="fa fa-calendar"></i> &nbsp;&nbsp;Starts {{date data.course.startDate}}</div>
-								<div class="time"><i class="fa fa-clock-o"></i> &nbsp;&nbsp;{{data.course.periods}}</div>
-								<a href="/courses/{{data.course.courseType}}/{{data.course.slug}}" class="apply_now">Apply Now</a>
-							{{else}}
-								<p>No Upcoming Course</p>
-							{{/if}}
+				{{#each data.courses.results }}
+					{{#lt @index 2}}
+						<div class="item {{#ifeq @index 0}}active{{else}}{{/ifeq}}">
+							<div class="container mid_content">
+								<div class="in_tech">
+									{{#ifeq @index 0}}We Accelerate Your Career in Tech.{{else}}Learn How To&nbsp;Code From Scratch.{{/ifeq}}
+								</div>
+								<div class="right_corse">
+									<p class="up_tx">Upcoming Courses!</p>
+									<p class="fd_tx">{{title}}</p>
+									<div class="date"><i class="fa fa-calendar"></i> &nbsp;&nbsp;Starts {{date startDate}}</div>
+									<div class="time"><i class="fa fa-clock-o"></i> &nbsp;&nbsp;{{periods}}</div>
+									<a href="/courses/{{courseType}}/{{slug}}" class="apply_now">Apply Now</a>
+								</div>
+							</div>
+							<a href="#nextpage">
+								<div class="down_arrow"><i class="fa fa-angle-down"></i></div>
+							</a>
+							<span class="bg_slider"></span>
+							<img src="{{#ifeq @index 0}}/images/slider1.png{{else}}/images/slider2.png{{/ifeq}}" class="img-responsive" />
+							<div class="container">
+								<div class="carousel-caption"></div>
+							</div>
 						</div>
-					</div>
-					<a href="#nextpage">
-						<div class="down_arrow"><i class="fa fa-angle-down"></i></div>
-					</a>
-					<span class="bg_slider"></span>
-					<img src="/images/slider1.png" class="img-responsive" />
-					<div class="container">
-						<div class="carousel-caption"></div>
-					</div>
-				</div>
-				<div class="item">
-					<div class="container mid_content">
-						<div class="in_tech">Learn How To&nbsp;Code From Scratch.</div>
-						<div class="right_corse">
-							<p class="up_tx">Upcoming Courses!</p>
-							<p class="fd_tx">Backend Development</p>
-							<div class="date"><i class="fa fa-calendar"></i> &nbsp;&nbsp;Starts June 5, 2018</div>
-							<div class="time"><i class="fa fa-clock-o"></i> &nbsp;&nbsp;10am - 4pm ( mon &amp; wed )</div>
-							<a href="frontend_development.html" class="apply_now">Apply Now</a>
-						</div>
-					</div>
-					<div class="down_arrow"><i class="fa fa-angle-down"></i></div>
-					<span class="bg_slider"></span>
-					<img src="/images/slider2.png" class="img-responsive" />
-					<div class="container">
-						<div class="carousel-caption"></div>
-					</div>
-				</div>
+					{{/lt}}
+				{{/each}}
+
 				<div class="item">
 					<div class="container mid_content">
 						<div class="in_tech">Speed Up Your Learning With Us.</div>
@@ -135,7 +120,11 @@
 				{{else}}
 				{{/ifeq}}
 				{{#ifeq section 'courseLists'}}
-					<h1>{{#ifeq courseType 'immersive'}}Immersive Courses{{else}}Accelerated Courses{{/ifeq}}</h1>
+					<h1>
+						{{#ifeq courseType 'all'}}All Courses{{/ifeq}}
+						{{#ifeq courseType 'immersive'}}Immersive Courses{{/ifeq}}
+						{{#ifeq courseType 'accelerated'}}Accelerated Courses{{/ifeq}}
+					</h1>
 					<p>We Accelerate Your Career in Tech</p>
 				{{else}}
 				{{/ifeq}}

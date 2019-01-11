@@ -36,8 +36,8 @@
 
 					var disqus_config = function () {
 						this.page.url = 'https://univelcityng.herokuapp.com/blog/post/{{{data.post._id}}}';  // Replace PAGE_URL with your page's canonical URL variable
-						this.page.identifier = 'blog'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-						this.page.title = 'blog'
+						this.page.identifier = '{{{data.post.slug}}}'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+						this.page.title = '{{{data.post.title}}}'
 					};
 
 					(function () { // DON'T EDIT BELOW THIS LINE

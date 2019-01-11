@@ -20,8 +20,8 @@ exports = module.exports = function (req, res) {
 	view.on('init', function (next) {
 		var q = keystone.list('Course').paginate({
 			page: 1,
-			perPage: 10,
-			maxPages: 10,
+			perPage: 4,
+			maxPages: 1,
 		}).where('state', 'published').sort('startDate');
 
 		q.exec(function (err, response) {
@@ -41,7 +41,7 @@ exports = module.exports = function (req, res) {
 
 		t.exec(function(err, response){
 			locals.data.testimonials = response;
-			console.log(response.results);
+			// console.log(response.results);
 			next(err);
 		});
 	});

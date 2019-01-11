@@ -19,9 +19,14 @@ exports = module.exports = function (req, res) {
       perPage: 10,
       maxPages: 10,
     })
-      .where('state', 'published')
-      .where('courseType', locals.courseType)
-      .sort('startDate');
+      .where('state', 'published');
+    
+    if (locals.courseType !== 'all') {
+      q.where('courseType', locals.courseType).sort('startDate');
+    }
+    else {
+      q.sort('startDate');
+    }
 
     q.exec(function (err, response) {
       locals.courses = response;

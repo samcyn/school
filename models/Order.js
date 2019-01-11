@@ -61,7 +61,7 @@ Order.schema.methods.sendNotificationEmail = function (callback) {
       templateName: 'enquiry-notification',
       transport: 'mailgun',
     }).send({
-      to: admins,
+      to: 'jayi4007@gmail.com',
       from: {
         name: 'univelcity',
         email: 'order@univelcity.com',

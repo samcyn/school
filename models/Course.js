@@ -16,6 +16,7 @@ Course.add({
   price: { type: Types.Money, format: '$0,0.00', formatString: 'en-gb', default: 0, required: true },
   periods: { type: String, index: true, },
   location: { type: String },
+  duration: { type: String },
   discount: { type: Types.Number, default: 0 },
   state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
   courseType: { type: Types.Select, options: 'immersive, accelerated, short', default: 'immersive', index: true },

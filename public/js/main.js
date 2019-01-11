@@ -3,6 +3,9 @@ var handler = StripeCheckout.configure({
   image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
   locale: 'auto',
   token: function (token) {
+    if(!token) {
+      return false;
+    }
     var paymentForm = $("#paymentForm");
    
     var formData = paymentForm.serialize() + '&stripeToken=' + token.id + '&stripeTokenType=' + token.type;
@@ -54,7 +57,10 @@ var app = {
   },
   formSumbitController: function (e, title, price) {
     e.preventDefault();
-
+    if (!handler) {
+      alert("Can not connect to Internet");
+      return false;
+    }
     handler.open({
       name: 'Univelcity',
       description: title,

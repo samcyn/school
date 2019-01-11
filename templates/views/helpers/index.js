@@ -336,5 +336,11 @@ module.exports = function () {
 		return new hbs.SafeString(msg);
 	}
 
+	// less than 
+	_helpers.lt = function (a, b) {
+		var next = arguments[arguments.length - 1];
+		return (a < b ) ? next.fn(this) : next.inverse(this);
+	}
+
 	return _helpers;
 };

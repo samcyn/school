@@ -1,3 +1,18 @@
+<div class="breadcrumb">
+  <div class="container padLR">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/courses">Courses</a></li>
+        <li class="breadcrumb-item active" aria-current="page">
+          {{#ifeq courseType 'immersive'}}Immersive{{/ifeq}}
+          {{#ifeq courseType 'accelerated'}}Accelerated{{/ifeq}}
+          {{#ifeq courseType 'all'}}All{{/ifeq}}
+        </li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
 <div class="section_accelerate aboutus">
   <div class="container">
     <div class="cors_ttl">An eight ( 8 ) weeks bootcamp that help you kick start a career in Tech. <br />( Programming
@@ -5,14 +20,20 @@
     </div>
 
     {{#each courses.results}}
-      <div class="col_immer">
-        <div class="img_sec"><img src="{{{cloudinaryUrl image crop='fit' }}}" alt="{{slug}}" /></div>
-        <div class="detail_sec">
-          <h2>{{title}}</h2>
-          <p>{{safeStringAlways description.brief}}</p>
-          <a href="/courses/{{courseType}}/{{slug}}" class="learn_more">Learn more</a>
+    <div class="col_sive">
+      <div class="img_sec"><img src="{{{cloudinaryUrl image crop='fit' }}}" alt="{{slug}}"/></div>
+      <div class="detail_sec">
+        <h2>{{title}}</h2>
+        <div class="dateandtime">
+          <div class="date"><i class="fa fa-calendar"></i> &nbsp;Starts {{date startDate}}</div>
+          <div class="time"><i class="fa fa-clock-o"></i> &nbsp;&nbsp;{{periods}}</div>
         </div>
       </div>
+      <div class="parra">
+        <p>{{safeStringAlways description.brief}}</p>
+        <a href="/courses/{{courseType}}/{{slug}}" class="learn_more">Apply Now</a>
+      </div>
+    </div>
     {{/each}}
 
   </div>
